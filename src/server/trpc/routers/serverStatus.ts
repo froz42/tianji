@@ -7,7 +7,7 @@ import {
 } from '../trpc.js';
 import {
   clearOfflineServerStatus,
-  getServerStatusHistory,
+  getPublicServerStatusHistory,
   getServerMapFromCache,
 } from '../../model/serverStatus.js';
 import { OPENAPI_TAG } from '../../utils/const.js';
@@ -84,6 +84,6 @@ export const serverStatusRouter = router({
     )
     .query(async ({ input }) => {
       const { workspaceId, name } = input;
-      return getServerStatusHistory(workspaceId, name);
+      return getPublicServerStatusHistory(workspaceId, name);
     }),
 });
